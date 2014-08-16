@@ -12,8 +12,8 @@ Function.prototype.inherits = function(object) {
     Asteroids.MovingObject.call(this, pos, vel, Bullet.RADIUS, Bullet.COLOR);
   };
 
-  Bullet.RADIUS = 2;
-  Bullet.COLOR = "green";
+  Bullet.RADIUS = 2.5;
+  Bullet.COLOR = "#800000";
 
   Bullet.inherits(Asteroids.MovingObject);
 

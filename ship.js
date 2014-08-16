@@ -13,7 +13,7 @@ Function.prototype.inherits = function(object) {
   };
 
   Ship.RADIUS = 5;
-  Ship.COLOR = "white";
+  Ship.COLOR = "#F0F8FF";
 
 
   Ship.inherits(Asteroids.MovingObject);
