@@ -4,13 +4,14 @@
   var Game = Asteroids.Game = function(ctx) {
     this.canvas = ctx;
     this.asteroids = [];
-    this.addAsteroids(5);
+    this.addAsteroids(7);
     this.ship = new Asteroids.Ship([(Game.DIM_X)/2, (Game.DIM_Y)/2], [0, 0],                                                                          this);
     this.bullets = [];
+    this.score = 0;
   };
 
-  Game.DIM_X = 500;
-  Game.DIM_Y = 500;
+  Game.DIM_X =700;
+  Game.DIM_Y = 700;
   Game.FPS = 30;
 
   Game.prototype.addAsteroids = function(numAsteroids) {
@@ -29,10 +30,17 @@
     }
   };
 
+  Game.prototype.drawScore = function() {
+    this.canvas.fillStyle = "white";
+    this.canvas.font = "bold "+ 35 +"pt Arial ";
+    this.canvas.fillText("SCORE" + " " + this.score, 0, 100);
+  };
+
   Game.prototype.draw = function() {
     var game = this;
     game.canvas.clearRect(0,0, Game.DIM_X, Game.DIM_Y);
     game.ship.draw(game.canvas);
+    game.drawScore();
     game.asteroids.forEach(function(ast) {
       ast.draw(game.canvas);
     });
@@ -57,16 +65,9 @@
     var game = this;
     game.move();
 
-    if (game.asteroids.length < 3) {
-      game.addAsteroids(3);
+    if (game.asteroids.length < 5) {
+      game.addAsteroids(2);
     }
-    // game.asteroids.forEach(function(ast) {
-    //   console.log(game.isOutOfBounds(ast));
-    //   if (game.isOutOfBounds(ast)) {
-    //     debugger
-    //     game.removeAsteriod(ast);
-    //   }
-    // })
     game.bullets.forEach(function(b) {
       console.log("out of bounds:" + game.isOutOfBounds(b));
       if (game.isOutOfBounds(b)) {
@@ -98,6 +99,7 @@
     for (var i = 0; i < this.asteroids.length; i++){
       if (this.asteroids[i] === asteroid) {
         this.asteroids.splice(i, 1);
+        this.score ++;
       }
     }
   };

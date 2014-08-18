@@ -27,19 +27,8 @@ Function.prototype.inherits = function(object) {
     });
   };
 
-  // Bullet.prototype.removeBullet = function(bullet) {
-  //   var bullets = this.game.bullets;
-  //   for (var i = 0; i < bullets.length; i++){
-  //     if (bullets[i] === bullet) {
-  //       bullets.splice(i, 1);
-  //     }
-  //   }
-  // };
-
-
   Bullet.prototype.runStep = function() {
     this.hitAsteroids();
   };
-
-
+  
 })(this);

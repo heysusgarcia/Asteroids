@@ -23,13 +23,4 @@ Function.prototype.inherits = function(object) {
     return new Asteroid(rPos, rVel, game);
   };
 
-  // Asteroid.prototype.removeAsteroid = function(asteroid) {
-  //   var asteroids = this.game.asteroids;
-  //   for (var i = 0; i < asteroids.length; i++){
-  //     if (asteroids[i] === asteroid) {
-  //       asteroids.splice(i, 1);
-  //     }
-  //   }
-  // };
-
 })(this);
