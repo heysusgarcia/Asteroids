@@ -20,8 +20,8 @@ Function.prototype.inherits = function(object) {
 
 
   Ship.prototype.power = function(impulse) {
-    this.vel[0] += impulse[0] * 0.2;
-    this.vel[1] += impulse[1] * 0.2;
+    this.vel[0] += impulse[0] * 0.25;
+    this.vel[1] += impulse[1] * 0.25;
   };
 
   Ship.prototype.fireBullet = function() {
@@ -33,10 +33,7 @@ Function.prototype.inherits = function(object) {
       return [(velX * 25) / speed, (velY * 25) / speed ];
     };
 
-    // if (ship.vel[0] !== 0 || ship.vel[1] !== 0) {
       return new Asteroids.Bullet(ship.pos, bulletTrajec(), ship.game);
-
-    // }
   };
 
 })(this);

@@ -20,16 +20,6 @@
     }
   };
 
-  Game.prototype.isOutOfBounds = function(obj) {
-    if (obj.posX > Game.DIM_X || obj.posX < 0) {
-      return true;
-    } else if (obj.posY > Game.DIM_Y || obj.posY < 0) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   Game.prototype.drawScore = function() {
     this.canvas.fillStyle = "white";
     this.canvas.font = "bold "+ 35 +"pt Arial ";
@@ -88,7 +78,7 @@
     var bullet = this.ship.fireBullet();
     this.bullets.push(bullet);
     var that = this;
-    window.setTimeout(function() {that.removeBullet(bullet)}, 1000);
+    window.setTimeout(function() {that.removeBullet(bullet)}, 700);
   };
 
   Game.prototype.removeAsteroid = function(asteroid) {
