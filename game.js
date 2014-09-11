@@ -51,6 +51,7 @@
 
   Game.prototype.move = function() {
     this.ship.move();
+    var game = this;
     var bullets = this.bullets;
     this.bullets.forEach(function(b) {
       b.step();
@@ -67,14 +68,7 @@
 
     if (game.asteroids.length < 5) {
       game.addAsteroids(2);
-    }
-    game.bullets.forEach(function(b) {
-      console.log("out of bounds:" + game.isOutOfBounds(b));
-      if (game.isOutOfBounds(b)) {
-        console.log("out of bounds:" + game.isOutOfBounds(b));
-       game.removeBullet(b);
       }
-    })
     game.checkCollisions();
     game.draw();
   };
@@ -91,8 +85,10 @@
   };
 
   Game.prototype.fireBullet = function () {
-    this.bullets.push(this.ship.fireBullet());
-    console.log(this.bullets);
+    var bullet = this.ship.fireBullet();
+    this.bullets.push(bullet);
+    var that = this;
+    window.setTimeout(function() {that.removeBullet(bullet)}, 1000);
   };
 
   Game.prototype.removeAsteroid = function(asteroid) {

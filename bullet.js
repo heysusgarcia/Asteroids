@@ -9,11 +9,12 @@ Function.prototype.inherits = function(object) {
 
   var Bullet = Asteroids.Bullet = function(pos, vel, game) {
     this.game = game;
+    this.life = 2000;
     Asteroids.MovingObject.call(this, pos, vel, Bullet.RADIUS, Bullet.COLOR);
   };
 
-  Bullet.RADIUS = 2.5;
-  Bullet.COLOR = "#800000";
+  Bullet.RADIUS = 4;
+  Bullet.COLOR = "green";
 
   Bullet.inherits(Asteroids.MovingObject);
 
@@ -30,5 +31,5 @@ Function.prototype.inherits = function(object) {
   Bullet.prototype.runStep = function() {
     this.hitAsteroids();
   };
-  
+
 })(this);

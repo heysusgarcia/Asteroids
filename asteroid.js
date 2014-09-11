@@ -18,8 +18,13 @@ Function.prototype.inherits = function(object) {
   Asteroid.inherits(Asteroids.MovingObject);
 
   Asteroid.randomAsteroid = function(dimX, dimY, game) {
-    var rPos = [(dimX * Math.random()), (dimY * Math.random())];
-    var rVel = [((Math.random() * 2) - 1), ((Math.random() * 2) - 1)];
+    var rX = Math.floor(Math.random() * dimX);
+    var rY;
+    if (rX !== 0) {
+      rY = 0;
+    }
+    var rPos = [rX, rY];
+    var rVel = [((Math.random() * 4) - Math.random()), ((Math.random() * 4) - Math.random())];
     return new Asteroid(rPos, rVel, game);
   };
 

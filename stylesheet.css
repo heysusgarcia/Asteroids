@@ -2,3 +2,9 @@
   color: white;
   font-family: Arial;
 }
+body {
+  background: url(https://s3-us-west-2.amazonaws.com/miscrand/space.jpg);
+  background-position: center;
+  background-repeat: none;
+  text-align: center;
+}
